@@ -5,7 +5,7 @@ let currentPage = 1;
 let totalItems = 0;
 let totalPages = 0;
 
-// Fetch Pokemon data with limit and offset based on the current page
+
 async function fetchData() {
   const offset = (currentPage - 1) * itemsPerPage;
   const urlWithParams = `${apiUrl}?limit=${itemsPerPage}&offset=${offset}`;
@@ -31,7 +31,7 @@ async function fetchData() {
   }
 }
 
-// Display Pokemon list
+
 function displayItems(items) {
   const listElement = document.getElementById('item-list');
   listElement.innerHTML = '';
@@ -43,7 +43,7 @@ function displayItems(items) {
   });
 }
 
-// Update pagination information and buttons
+
 function updatePageInfo() {
   console.log(`Updating page info: Page ${currentPage} of ${totalPages}`);
 
@@ -52,7 +52,6 @@ function updatePageInfo() {
   document.getElementById('next-btn').disabled = currentPage === totalPages;
 }
 
-// Event listeners
 document.getElementById('prev-btn').addEventListener('click', () => {
   if (currentPage > 1) {
     currentPage--;
@@ -73,5 +72,5 @@ document.getElementById('next-btn').addEventListener('click', () => {
   }
 });
 
-// Initial fetch
+
 fetchData();
